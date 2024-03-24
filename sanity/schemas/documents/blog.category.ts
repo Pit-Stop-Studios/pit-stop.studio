@@ -10,6 +10,14 @@ export default defineType({
 		defineField({
 			name: 'title',
 			type: 'string',
-		})
-	]
+		}),
+		defineField({
+			name: 'slug',
+			type: 'slug',
+			options: {
+				source: (doc: any) => doc.title,
+			},
+			validation: (Rule) => Rule.required(),
+		}),
+	],
 })

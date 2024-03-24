@@ -27,11 +27,16 @@ export default defineType({
 			title: 'link.label',
 			internal: 'link.internal.metadata.slug.current',
 			external: 'link.external',
+			params: 'link.params',
 		},
-		prepare: ({ title, internal, external }) => ({
+		prepare: ({ title, internal, external, params }) => ({
 			title,
-			subtitle:
+			subtitle: [
 				external || (internal && (internal === 'index' ? '/' : `/${internal}`)),
+				params,
+			]
+				.filter(Boolean)
+				.join(''),
 		}),
 	},
 })
