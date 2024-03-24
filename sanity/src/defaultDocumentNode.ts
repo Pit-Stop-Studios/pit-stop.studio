@@ -18,7 +18,7 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 							const path = slug === 'index' ? '' : slug
 							return isDev
 								? `http://localhost:3000/${path}`
-								: `https://staging--human-marketing.netlify.app/${path}`
+								: `https://staging--takumi-maru-web.vercel.app/${path}`
 						},
 						reload: {
 							button: true,
