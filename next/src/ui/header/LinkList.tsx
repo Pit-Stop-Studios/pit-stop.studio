@@ -1,6 +1,6 @@
 import CTA from '../CTA'
 
-export default function LinkList({ label, links }: Props) {
+export default function LinkList({ label, links }: Sanity.LinkList) {
 	return (
 		<details className="relative">
 			<summary>{label}</summary>
@@ -15,5 +15,3 @@ export default function LinkList({ label, links }: Props) {
 		</details>
 	)
 }
-
-type Props = Sanity.LinkList

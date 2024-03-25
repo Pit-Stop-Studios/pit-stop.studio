@@ -5,9 +5,9 @@ import {
 	projectInfoWidget,
 	projectUsersWidget,
 } from '@sanity/dashboard'
+import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
-
 import defaultDocumentNode from './src/defaultDocumentNode'
 import structure from './src/structure'
 
@@ -22,7 +22,17 @@ export default defineConfig({
 
 	plugins: [
 		structureTool({ defaultDocumentNode, structure }),
-		dashboardTool({ widgets: [projectInfoWidget(), projectUsersWidget()] }),
+		dashboardTool({
+			widgets: [
+				projectInfoWidget(),
+				projectUsersWidget(),
+				vercelWidget({
+					layout: {
+						width: 'auto',
+					},
+				}),
+			],
+		}),
 		visionTool(),
 	],
 

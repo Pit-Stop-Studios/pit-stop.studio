@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
-export default function CTA({ link, style, className, children }: Props) {
+export default function CTA({
+	link,
+	style,
+	className,
+	children,
+}: Sanity.CTA & React.HTMLAttributes<HTMLAnchorElement>) {
 	if (!link?.type) return null
 
 	const props = {
@@ -25,5 +30,3 @@ export default function CTA({ link, style, className, children }: Props) {
 			return null
 	}
 }
-
-type Props = Sanity.CTA & React.HTMLAttributes<HTMLAnchorElement>

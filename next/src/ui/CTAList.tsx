@@ -1,7 +1,12 @@
 import { twMerge } from 'tailwind-merge'
 import CTA from './CTA'
 
-export default function CTAList({ ctas, className }: Props) {
+export default function CTAList({
+	ctas,
+	className,
+}: React.HTMLAttributes<HTMLParagraphElement> & {
+	ctas?: Sanity.CTA[]
+}) {
 	return (
 		<p
 			className={twMerge(
@@ -12,8 +17,4 @@ export default function CTAList({ ctas, className }: Props) {
 			{ctas?.map((cta, key) => <CTA {...cta} key={key} />)}
 		</p>
 	)
-}
-
-type Props = React.HTMLAttributes<HTMLParagraphElement> & {
-	ctas?: Sanity.CTA[]
 }

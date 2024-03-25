@@ -7,7 +7,7 @@ export default async function Header() {
 	const { title, menu } = await getSite()
 
 	return (
-		<header className="sticky top-0 z-10">
+		<header className="sticky top-0 z-10 p-4">
 			<Link href="/">{title}</Link>
 
 			<nav className="flex gap-4">

@@ -24,5 +24,9 @@ export default defineType({
 			},
 			validation: (Rule) => Rule.required(),
 		}),
+		defineField({
+			name: 'image',
+			type: 'image',
+		}),
 	],
 })

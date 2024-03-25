@@ -13,6 +13,12 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'block' }],
 		}),
+		defineField({
+			name: 'ctas',
+			title: 'Call-to-actions',
+			type: 'array',
+			of: [{ type: 'cta' }],
+		}),
 	],
 	preview: {
 		select: {

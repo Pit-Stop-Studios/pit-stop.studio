@@ -5,7 +5,7 @@ export default async function Footer() {
 
 	return (
 		<footer>
-			<p>
+			<p className="text-center text-sm">
 				&copy; {new Date().getFullYear()} {title}
 			</p>
 		</footer>
