@@ -1,8 +1,9 @@
-import CTA from '../CTA'
+import CTA from '@/ui/CTA'
+import InteractiveDetails from './InteractiveDetails'
 
 export default function LinkList({ label, links }: Sanity.LinkList) {
 	return (
-		<details className="relative">
+		<InteractiveDetails className="relative">
 			<summary>{label}</summary>
 
 			<ul className="anim-fade-to-b absolute left-0 top-full min-w-max bg-white">
@@ -12,6 +13,6 @@ export default function LinkList({ label, links }: Sanity.LinkList) {
 					</li>
 				))}
 			</ul>
-		</details>
+		</InteractiveDetails>
 	)
 }

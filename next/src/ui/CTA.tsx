@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
 
 export default function CTA({
 	link,
@@ -10,7 +10,7 @@ export default function CTA({
 	if (!link?.type) return null
 
 	const props = {
-		className: twMerge(style, className),
+		className: cn(style, className),
 		children: children || link.label || link.internal?.title,
 	}
 

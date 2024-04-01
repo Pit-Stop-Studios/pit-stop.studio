@@ -15,8 +15,7 @@ const singletonTypes = ['site']
 
 export default defineConfig({
 	name: 'default',
-	title: 'Takumi Maru Web',
-
+	title: 'Pit Stop Studio',
 	projectId: 'ejp4p9qf',
 	dataset: 'production',
 

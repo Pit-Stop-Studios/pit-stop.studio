@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react'
 import CTAList from '@/ui/CTAList'
 import Img from '@/ui/Img'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
 
 export default function HeroPostcard({
 	content,
@@ -16,7 +16,7 @@ export default function HeroPostcard({
 }>) {
 	return (
 		<section className="section grid items-center gap-8 md:grid-cols-2 md:gap-x-12">
-			<figure className={twMerge(image?.onRight && 'md:order-1')}>
+			<figure className={cn(image?.onRight && 'md:order-1')}>
 				<Img image={image} />
 			</figure>
 
