@@ -15,6 +15,7 @@ import heroCentered from './modules/hero.centered'
 import heroPostcard from './modules/hero.postcard'
 import blogRollup from './modules/blog-rollup'
 import faqList from './modules/faq-list'
+import uvpList from './modules/uvp-list'
 
 export const schemaTypes = [
 	// documents
@@ -34,4 +35,5 @@ export const schemaTypes = [
 	faqList,
 	heroCentered,
 	heroPostcard,
+	uvpList,
 ]

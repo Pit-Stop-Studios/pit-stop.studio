@@ -17,6 +17,7 @@ export default defineType({
 				{ type: 'faq-list' },
 				{ type: 'hero.centered' },
 				{ type: 'hero.postcard' },
+				{ type: 'uvp-list' },
 			],
 		}),
 		defineField({

@@ -31,7 +31,7 @@
 	}
 
 	.h1 {
-		@apply _h;
+		@apply _h text-3xl;
 	}
 
 	.h2 {
