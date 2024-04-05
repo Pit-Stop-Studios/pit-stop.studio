@@ -1,6 +1,6 @@
 import Header from '@/ui/header'
 import Footer from '@/ui/footer'
-// import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 import '@/styles/app.css'
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
-			{/* <GoogleTagManager gtmId='' /> */}
+			<GoogleTagManager gtmId="GTM-5JD6F3WF" />
 		</html>
 	)
 }
