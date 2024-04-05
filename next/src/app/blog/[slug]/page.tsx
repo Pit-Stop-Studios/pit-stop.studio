@@ -18,7 +18,9 @@ async function getPost(params: Props['params']) {
 	return await fetchSanity<Sanity.BlogPost>(
 		groq`*[_type == 'blog.post' && metadata.slug.current == $slug][0]{
 			...,
-			categories[]->
+			'readTime': length(pt::text(body)) / 200,
+			categories[]->,
+			author->
 		}`,
 		{
 			params,

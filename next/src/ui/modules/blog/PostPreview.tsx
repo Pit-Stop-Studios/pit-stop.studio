@@ -28,7 +28,9 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 				{post.metadata.title}
 			</div>
 
-			<Date className="block" date={post.publishDate} />
+			<div className="text-sm">
+				<Date className="block" value={post.publishDate} />
+			</div>
 		</Link>
 	)
 }

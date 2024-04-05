@@ -40,7 +40,6 @@
 
 	._h {
 		font-family: theme('fontFamily.serif');
-		font-weight: bold;
 		text-wrap: balance;
 	}
 
@@ -70,19 +69,23 @@
 
 	/* ctas, links */
 
-	.action {
-		--shadow: .3ch;
-		--lift: calc(var(--shadow) * -0.5);
-
+	.with-icon {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		gap: 0.5em;
+	}
+
+	.action {
+		--shadow: .3ch;
+		--lift: calc(var(--shadow) * -0.5);
+
 		padding: 0.25em 1.5em;
 		border: 1px dashed;
 		background: #fff;
 		font-weight: bold;
-		@apply transition-all;
+		@apply with-icon transition-all;
 
 		&:hover {
 			box-shadow: var(--shadow) var(--shadow) 0 currentColor;
@@ -92,14 +95,6 @@
 		&:active {
 			--shadow: 0.15ch;
 		}
-	}
-
-	.action-arrow {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		gap: .5em;
 	}
 
 	.link {

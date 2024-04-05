@@ -1,12 +1,20 @@
-export default function Date({
-	date,
+export default function ({
+	value,
 	className,
 }: {
-	date: string
+	value: string
 } & React.HTMLAttributes<HTMLTimeElement>) {
+	if (!value) return null
+
+	const formatted = new Date(value + 'T00:00:00').toLocaleDateString('ja-JP', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	})
+
 	return (
-		<time className={className} dateTime={date}>
-			{date}
+		<time className={className} dateTime={value}>
+			{formatted}
 		</time>
 	)
 }

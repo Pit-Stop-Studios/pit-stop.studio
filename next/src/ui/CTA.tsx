@@ -13,7 +13,7 @@ export default function CTA({
 	const isArrow = style === 'action-arrow'
 
 	const props = {
-		className: cn(style, isArrow && 'group', className),
+		className: cn(style, isArrow && 'group with-icon', className),
 		children: [
 			children || link.label || link.internal?.title,
 			isArrow && (
@@ -30,7 +30,7 @@ export default function CTA({
 			const slug = link.internal?.metadata?.slug?.current
 			const parent = link.internal?._type === 'blog.post' ? 'blog' : null
 			const path = slug === 'index' ? '' : slug
-			const href = '/' + [parent, path].filter(Boolean).join('/')
+			const href = '/' + [parent, path, link.params].filter(Boolean).join('/')
 
 			return <Link href={href} {...props} />
 

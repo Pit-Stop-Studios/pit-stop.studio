@@ -21,7 +21,9 @@ declare global {
 		type BlogPost = SanityDocument & {
 			readonly _type: 'blog.post'
 			body: any
+			readTime: number
 			categories: BlogCategory[]
+			author: Employee
 			publishDate: string
 			metadata: Metadata
 		}
@@ -53,6 +55,7 @@ declare global {
 			type: 'internal' | 'external'
 			internal?: Page | BlogPost
 			external?: string
+			params?: string
 		}
 
 		type LinkList = {
