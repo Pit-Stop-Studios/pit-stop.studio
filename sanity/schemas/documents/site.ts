@@ -14,5 +14,16 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'link' }, { type: 'link.list' }],
 		}),
+		defineField({
+			name: 'ctas',
+			title: 'Call-to-actions',
+			type: 'array',
+			of: [{ type: 'cta' }],
+			validation: (Rule) => Rule.max(1),
+		}),
+		defineField({
+			name: 'logo',
+			type: 'image',
+		}),
 	],
 })

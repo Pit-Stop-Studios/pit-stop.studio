@@ -1,10 +1,10 @@
 import { defineField, defineType } from 'sanity'
-import { TfiLayoutCtaCenter } from 'react-icons/tfi'
+import { TfiLayoutCtaLeft } from 'react-icons/tfi'
 
 export default defineType({
-	name: 'hero.centered',
-	title: 'Hero (centered)',
-	icon: TfiLayoutCtaCenter,
+	name: 'hero.main',
+	title: 'Hero (main)',
+	icon: TfiLayoutCtaLeft,
 	type: 'object',
 	fields: [
 		defineField({
@@ -25,7 +25,7 @@ export default defineType({
 		},
 		prepare: ({ content }) => ({
 			title: content[0]?.children[0]?.text,
-			subtitle: 'Hero (centered)',
+			subtitle: 'Hero (main)',
 		}),
 	},
 })

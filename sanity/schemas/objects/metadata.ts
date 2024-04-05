@@ -20,7 +20,7 @@ export default defineType({
 			name: 'slug',
 			type: 'slug',
 			options: {
-				source: (doc: any) => doc.name || doc.title,
+				source: (doc: any) => doc.name || doc.title || doc.metadata.title,
 			},
 			validation: (Rule) => Rule.required(),
 		}),

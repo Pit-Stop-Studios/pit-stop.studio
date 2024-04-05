@@ -14,8 +14,10 @@ export default defineType({
 			type: 'array',
 			of: [
 				{ type: 'blog-rollup' },
+				{ type: 'employee-list' },
 				{ type: 'faq-list' },
 				{ type: 'hero.centered' },
+				{ type: 'hero.main' },
 				{ type: 'hero.postcard' },
 				{ type: 'uvp-list' },
 			],

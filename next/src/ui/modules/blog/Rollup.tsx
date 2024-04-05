@@ -1,7 +1,7 @@
 import { fetchSanity, groq } from '@/lib/sanity'
 import CTAList from '@/ui/CTAList'
 import { PortableText } from '@portabletext/react'
-import PostCard from './PostCard'
+import PostPreview from './PostPreview'
 
 export default async function Rollup({
 	content,
@@ -25,13 +25,13 @@ export default async function Rollup({
 					<PortableText value={content} />
 				</div>
 
-				<CTAList className="*:hover:underline" ctas={ctas} />
+				<CTAList ctas={ctas} />
 			</header>
 
 			<ul className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
 				{posts?.map((post, key) => (
 					<li key={key}>
-						<PostCard post={post} />
+						<PostPreview post={post} />
 					</li>
 				))}
 			</ul>

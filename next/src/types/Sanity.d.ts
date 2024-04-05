@@ -7,6 +7,7 @@ declare global {
 		type Site = SanityDocument & {
 			title: string
 			menu?: (Link | LinkList)[]
+			logo: Image
 		}
 
 		type Page = SanityDocument & {
@@ -19,7 +20,6 @@ declare global {
 
 		type BlogPost = SanityDocument & {
 			readonly _type: 'blog.post'
-			title: string
 			body: any
 			categories: BlogCategory[]
 			publishDate: string
@@ -28,6 +28,12 @@ declare global {
 
 		type BlogCategory = SanityDocument & {
 			title: string
+		}
+
+		type Employee = SanityDocument & {
+			name: string
+			title: string
+			image: Image
 		}
 
 		// objects

@@ -1,4 +1,5 @@
 import { createClient, type QueryParams } from 'next-sanity'
+import imageUrlBuilder from '@sanity/image-url'
 import dev from '@/lib/env'
 export { groq } from 'next-sanity'
 
@@ -30,3 +31,7 @@ export function fetchSanity<T = any>(
 		},
 	})
 }
+
+const builder = imageUrlBuilder(client)
+
+export const urlFor = (source: Sanity.Image) => builder.image(source)

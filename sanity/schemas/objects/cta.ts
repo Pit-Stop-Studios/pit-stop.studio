@@ -17,6 +17,7 @@ export default defineType({
 			options: {
 				list: [
 					{ title: 'action', value: 'action' },
+					{ title: 'arrow', value: 'action-arrow' },
 					{ title: 'link', value: 'link' },
 				],
 			},

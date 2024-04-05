@@ -23,7 +23,8 @@ async function getPage() {
 						...,
 						internal->{ title, metadata }
 					}
-				}
+				},
+				employees[]->
 			}
 		}`,
 		{

@@ -6,10 +6,6 @@ export default defineType({
 	type: 'document',
 	fields: [
 		defineField({
-			name: 'title',
-			type: 'string',
-		}),
-		defineField({
 			name: 'body',
 			type: 'array',
 			of: [{ type: 'block' }],
@@ -30,13 +26,18 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: 'author',
+			type: 'reference',
+			to: [{ type: 'employee' }],
+		}),
+		defineField({
 			name: 'metadata',
 			type: 'metadata',
 		}),
 	],
 	preview: {
 		select: {
-			title: 'title',
+			title: 'metadata.title',
 			subtitle: 'publishDate',
 		},
 	},

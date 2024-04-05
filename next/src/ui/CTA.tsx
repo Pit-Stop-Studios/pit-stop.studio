@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { AiOutlineSwapRight } from 'react-icons/ai'
 
 export default function CTA({
 	link,
@@ -9,9 +10,19 @@ export default function CTA({
 }: Sanity.CTA & React.HTMLAttributes<HTMLAnchorElement>) {
 	if (!link?.type) return null
 
+	const isArrow = style === 'action-arrow'
+
 	const props = {
-		className: cn(style, className),
-		children: children || link.label || link.internal?.title,
+		className: cn(style, isArrow && 'group', className),
+		children: [
+			children || link.label || link.internal?.title,
+			isArrow && (
+				<AiOutlineSwapRight
+					className="text-xl transition-transform group-hover:translate-x-1"
+					key=""
+				/>
+			),
+		].filter(Boolean),
 	}
 
 	switch (link.type) {
