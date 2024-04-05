@@ -12,7 +12,7 @@ export default async function Mask({
 	return (
 		<figure
 			className={cn('bg-current', className)}
-			style={{ mask: `url('${urlFor(image)}') center/contain no-repeat` }}
+			style={{ mask: `url(${urlFor(image).url()}) center/contain no-repeat` }}
 		/>
 	)
 }
