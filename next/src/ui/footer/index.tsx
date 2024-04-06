@@ -5,14 +5,17 @@ import css from './Footer.module.css'
 import CTA from '../CTA'
 
 export default async function Footer() {
-	const { title, footerMenu } = await getSite()
+	const { title, description, footerMenu } = await getSite()
 
 	return (
-		<footer className={cn(css.root, 'relative border-t border-current')}>
+		<footer className={cn(css.root, 'relative bg-ink text-canvas')}>
 			<div className="section space-y-8">
-				<div className="flex flex-wrap items-center justify-between gap-8 max-md:flex-col">
-					<div>
-						<Logo className="max-md:flex-col" />
+				<div className="flex flex-wrap items-center justify-between gap-8 max-md:flex-col md:items-start">
+					<div className="space-y-4">
+						<Logo className="text-lg max-md:flex-col" />
+						<p className="max-w-[12em] font-serif text-sm max-md:text-center">
+							{description}
+						</p>
 					</div>
 
 					<nav className="flex items-center justify-center gap-x-12 gap-y-3 max-md:flex-col">
