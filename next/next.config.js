@@ -11,9 +11,7 @@ const nextConfig = {
 	headers: async () => [
 		{
 			source: '/:path*',
-			headers: [
-				{ key: 'Access-Control-Allow-Origin', value: 'https://cdn.sanity.io' },
-			],
+			headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
 		},
 	],
 	// logging: {
