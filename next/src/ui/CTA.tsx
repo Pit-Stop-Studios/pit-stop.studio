@@ -13,15 +13,10 @@ export default function CTA({
 	const isArrow = style === 'action-arrow'
 
 	const props = {
-		className: cn(style, isArrow && 'group with-icon', className),
+		className: cn(style, isArrow && 'with-icon', className),
 		children: [
 			children || link.label || link.internal?.title,
-			isArrow && (
-				<AiOutlineSwapRight
-					className="text-xl transition-transform group-hover:translate-x-1"
-					key=""
-				/>
-			),
+			isArrow && <AiOutlineSwapRight className="text-xl" key="" />,
 		].filter(Boolean),
 	}
 

@@ -13,12 +13,23 @@ export default function UVPList({
 	return (
 		<section className="section space-y-8">
 			<header className="richtext max-w-lg">
-				<PortableText value={content} />
+				<PortableText
+					value={content}
+					components={{
+						marks: {
+							strong: ({ children }) => (
+								<strong className="font-normal text-hamilton">
+									{children}
+								</strong>
+							),
+						},
+					}}
+				/>
 			</header>
 
-			<ul className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+			<ul className="carousel max-lg:full-bleed grid-cols-4 gap-6 [--size:200px] max-lg:px-4 md:gap-x-12 lg:grid">
 				{items?.map((item, key) => (
-					<li className="richtext" key={key}>
+					<li className="richtext [&_h3]:h2" key={key}>
 						<PortableText value={item.content} />
 					</li>
 				))}

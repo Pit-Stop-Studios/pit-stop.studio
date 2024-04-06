@@ -9,8 +9,6 @@ import CTAList from '@/ui/CTAList'
 export default async function Header() {
 	const { title, menu, ctas, logo } = await getSite()
 
-	console.log({ title, logo, menu, ctas })
-
 	return (
 		<Wrapper className="sticky top-0 z-10 border-b border-current bg-canvas p-4">
 			<div className="flex flex-wrap items-center justify-between gap-2">

@@ -1,5 +1,5 @@
 import { PortableText } from 'next-sanity'
-import { urlFor } from '@/lib/sanity'
+import Avatar from '../Avatar'
 
 export default function EmployeeList({
 	employees,
@@ -8,41 +8,27 @@ export default function EmployeeList({
 	employees: Sanity.Employee[]
 	content: any
 }>) {
-	const size = 120
-
 	return (
 		<section className="section space-y-8 text-center">
 			<header className="richtext">
 				<PortableText value={content} />
 			</header>
 
-			<dl className="flex flex-wrap items-start justify-around gap-6">
+			<dl className="flex flex-wrap items-start justify-around gap-8">
 				{employees?.map((employee, key) => (
-					<div className="basis-[250px]" key={key}>
-						<dt className="space-y-3">
-							<figure
-								className="bg-ink/5 mx-auto aspect-square overflow-hidden rounded-full"
-								style={{ maxWidth: size }}
-							>
-								{employee.image && (
-									<img
-										className="aspect-square w-full object-cover"
-										src={urlFor(employee.image)
-											.size(size * 2, size * 2)
-											.auto('format')
-											.url()}
-										alt=""
-										width={size * 2}
-										height={size * 2}
-										loading="lazy"
-										draggable={false}
-									/>
-								)}
-							</figure>
+					<div className="basis-[300px] *:space-y-3" key={key}>
+						<dt>
+							<Avatar className="mx-auto" image={employee.image} />
 							<div className="h3">{employee.name}</div>
 						</dt>
 						<dd>
 							<div>{employee.title}</div>
+
+							{employee.content && (
+								<div className="richtext text-sm">
+									<PortableText value={employee.content} />
+								</div>
+							)}
 						</dd>
 					</div>
 				))}

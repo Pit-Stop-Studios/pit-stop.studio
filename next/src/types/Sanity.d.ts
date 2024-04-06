@@ -22,6 +22,7 @@ declare global {
 			readonly _type: 'blog.post'
 			body: any
 			readTime: number
+			headings?: { style: string; text: string }[]
 			categories: BlogCategory[]
 			author: Employee
 			publishDate: string
@@ -35,6 +36,7 @@ declare global {
 		type Employee = SanityDocument & {
 			name: string
 			title: string
+			content?: any
 			image: Image
 		}
 

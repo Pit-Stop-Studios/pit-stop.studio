@@ -18,14 +18,26 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'cta' }],
 		}),
+		defineField({
+			name: 'image',
+			type: 'image',
+			fields: [
+				defineField({
+					name: 'alt',
+					type: 'string',
+				}),
+			],
+		}),
 	],
 	preview: {
 		select: {
 			content: 'content',
+			media: 'image',
 		},
-		prepare: ({ content }) => ({
+		prepare: ({ content, media }) => ({
 			title: content[0]?.children[0]?.text,
 			subtitle: 'Hero (main)',
+			media,
 		}),
 	},
 })

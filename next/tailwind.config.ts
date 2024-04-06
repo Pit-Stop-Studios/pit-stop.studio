@@ -12,8 +12,8 @@ const config: Config = {
 			fontFamily: {
 				serif: ['Young Serif', 'Zen Antique', 'serif'],
 			},
-			minHeight: {
-				fold: 'calc(100svh - var(--header-height))',
+			maxHeight: {
+				fold: 'calc(100svh - var(--header-height) - var(--offset, 0px))',
 			},
 		},
 	},

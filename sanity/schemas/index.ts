@@ -13,6 +13,7 @@ import metadata from './objects/metadata'
 
 // modules
 import blogRollup from './modules/blog-rollup'
+import contactForm from './modules/contact-form'
 import employeeList from './modules/employee-list'
 import faqList from './modules/faq-list'
 import heroCentered from './modules/hero.centered'
@@ -36,6 +37,7 @@ export const schemaTypes = [
 
 	// modules
 	blogRollup,
+	contactForm,
 	employeeList,
 	faqList,
 	heroCentered,

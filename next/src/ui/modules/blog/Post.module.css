@@ -1,0 +1,25 @@
+.body {
+	& :is(h1, h2, h3, h4, h5, h6) {
+		margin-top: 1.5em !important;
+		text-wrap: pretty;
+	}
+
+	& :is(h2, h3) a {
+		display: inline-block;
+		margin-left: 0.5ch;
+	}
+
+	& :is(h2, h3):not(:hover) a {
+		display: none;
+	}
+
+	& a:not([href^="#"]) {
+		color: theme('colors.hamilton');
+		text-decoration: dotted underline;
+		text-underline-offset: 2px;
+
+		&:hover {
+			text-decoration: solid underline;
+		}
+	}
+}
