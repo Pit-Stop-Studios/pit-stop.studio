@@ -7,8 +7,6 @@ export default function Mask({
 }: {
 	image: Sanity.Image
 } & React.HTMLAttributes<HTMLDivElement>) {
-	console.log({ image })
-
 	if (!image) return null
 
 	return (
