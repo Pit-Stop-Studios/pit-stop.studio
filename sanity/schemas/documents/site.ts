@@ -10,6 +10,10 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
+			name: 'description',
+			type: 'string',
+		}),
+		defineField({
 			name: 'menu',
 			type: 'array',
 			of: [{ type: 'link' }, { type: 'link.list' }],

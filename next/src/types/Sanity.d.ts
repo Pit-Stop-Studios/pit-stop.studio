@@ -6,6 +6,7 @@ declare global {
 
 		type Site = SanityDocument & {
 			title: string
+			description: string
 			menu?: (Link | LinkList)[]
 			ctas?: CTA[]
 			footerMenu?: (Link | LinkList)[]
