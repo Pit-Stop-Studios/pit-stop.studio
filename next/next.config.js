@@ -8,17 +8,11 @@ const nextConfig = {
 			},
 		],
 	},
-	headers: async () => [
-		{
-			source: '/:path*',
-			headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
+	logging: {
+		fetches: {
+			fullUrl: true,
 		},
-	],
-	// logging: {
-	// 	fetches: {
-	// 		fullUrl: true,
-	// 	},
-	// },
+	},
 }
 
 module.exports = nextConfig
