@@ -1,7 +1,7 @@
 import { urlFor } from '@/lib/sanity'
 import { cn } from '@/lib/utils'
 
-export default async function Mask({
+export default function Mask({
 	image,
 	className,
 }: {
