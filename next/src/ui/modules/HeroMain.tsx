@@ -16,8 +16,10 @@ export default function HeroCentered({
 			<Img
 				className="order-1 max-h-[50vh] w-full rounded-3xl object-cover 2xl:max-h-[70svh]"
 				image={image}
+				imageWidth={1000}
 				loading="eager"
 				draggable={false}
+				priority
 			/>
 
 			<div className="richtext relative mt-auto max-w-lg py-4 text-lg">
