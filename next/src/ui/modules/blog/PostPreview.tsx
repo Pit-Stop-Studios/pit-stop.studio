@@ -4,16 +4,17 @@ import Img from '@/ui/Img'
 import Mask from '@/ui/Mask'
 import Date from '@/ui/Date'
 import Author from './Author'
+import Categories from './Categories'
 
 export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 	const { logo } = await getSite()
 
 	return (
 		<Link
-			className="group space-y-2"
+			className="group block space-y-2 outline-0"
 			href={`/blog/${post.metadata.slug.current}`}
 		>
-			<figure className="grid aspect-video place-content-center bg-ink/5">
+			<figure className="relative grid aspect-video place-content-center bg-ink/5">
 				{post.metadata.image ? (
 					<Img
 						className="aspect-video w-full"
@@ -23,9 +24,13 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 				) : (
 					<Mask image={logo} className="size-[8em] opacity-5" />
 				)}
+
+				<div className="absolute bottom-0 right-0 p-2 text-xs">
+					<Categories className="justify-end" categories={post.categories} />
+				</div>
 			</figure>
 
-			<div className="h3 decoration-dotted underline-offset-2 group-hover:underline">
+			<div className="h3 decoration-dotted underline-offset-2 group-focus-within:underline group-hover:underline">
 				{post.metadata.title}
 			</div>
 

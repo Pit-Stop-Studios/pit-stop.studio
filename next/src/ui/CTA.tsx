@@ -13,7 +13,7 @@ export default function CTA({
 	const isArrow = style === 'action-arrow'
 
 	const props = {
-		className: cn(style, isArrow && 'with-icon', className),
+		className: cn(style, className),
 		children: [
 			children || link.label || link.internal?.title,
 			isArrow && <AiOutlineSwapRight className="text-xl" key="" />,

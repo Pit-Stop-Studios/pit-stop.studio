@@ -54,9 +54,9 @@ export default function Form({
 			</label>
 
 			<div className="!mt-4">
-				<button className="with-icon">
+				<button className="action-arrow">
 					{submitLabel}
-					<AiOutlineSwapRight className="text-xl" key="" />
+					<AiOutlineSwapRight className="text-xl" />
 				</button>
 			</div>
 		</form>

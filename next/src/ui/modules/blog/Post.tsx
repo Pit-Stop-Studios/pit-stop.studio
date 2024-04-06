@@ -1,25 +1,32 @@
 import getSite from '@/lib/getSite'
+import Categories from './Categories'
 import Date from '@/ui/Date'
-import ReadTime from './ReadTime'
-import { PortableText } from '@portabletext/react'
-import Mask from '@/ui/Mask'
-import AnchorHeading from './AnchorHeading'
-import css from './Post.module.css'
-import { cn } from '@/lib/utils'
-import TableOfContents from './TableOfContents'
 import Author from './Author'
+import ReadTime from './ReadTime'
+import TableOfContents from './TableOfContents'
+import Mask from '@/ui/Mask'
+import { PortableText } from '@portabletext/react'
+import AnchorHeading from './AnchorHeading'
+import { cn } from '@/lib/utils'
+import css from './Post.module.css'
 
 export default async function Post({ post }: { post: Sanity.BlogPost }) {
 	const { logo } = await getSite()
 
 	return (
 		<article>
-			<header className="section space-y-6 text-center">
-				<h1 className="h1">{post.metadata.title}</h1>
+			<header className="section space-y-3 text-center">
+				<h1 className="h1 mb-6">{post.metadata.title}</h1>
 				<div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
 					<Date value={post.publishDate} />
 					<Author author={post.author} />
 					<ReadTime value={post.readTime} />
+				</div>
+				<div>
+					<Categories
+						className="justify-center text-sm"
+						categories={post.categories}
+					/>
 				</div>
 			</header>
 

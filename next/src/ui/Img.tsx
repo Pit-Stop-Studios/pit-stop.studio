@@ -15,7 +15,7 @@ export default function Img({
 	...props
 }: Omit<ImageProps, 'src' | 'alt'> & {
 	image?: Sanity.Image
-	imageWidth: number
+	imageWidth?: number
 	alt?: string
 	options?: UseNextSanityImageOptions
 }) {

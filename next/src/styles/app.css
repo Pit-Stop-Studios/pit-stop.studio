@@ -102,6 +102,11 @@
 		}
 	}
 
+	.highlight {
+		outline: 0;
+		@apply ring ring-hamilton/20;
+	}
+
 	.action {
 		--shadow: .3ch;
 		--lift: calc(var(--shadow) * -0.5);
@@ -110,7 +115,8 @@
 		border: 1px dashed;
 		background: theme('colors.canvas');
 		font-weight: bold;
-		@apply with-icon transition-all;
+		outline: 0;
+		@apply with-icon transition-all focus:highlight;
 
 		&:hover {
 			box-shadow: var(--shadow) var(--shadow) 0 currentColor;
@@ -119,6 +125,14 @@
 
 		&:active {
 			--shadow: 0.15ch;
+		}
+	}
+
+	.action-arrow {
+		@apply with-icon focus:highlight;
+
+		&:focus-within svg {
+			@apply text-hamilton;
 		}
 	}
 
@@ -186,8 +200,7 @@
 			border-bottom: 1px solid;
 			border-radius: 0;
 			background-color: transparent;
-			outline: 0;
-			@apply focus:ring ring-hamilton/20 hover:border-hamilton focus:border-hamilton;
+			@apply focus:highlight hover:border-hamilton focus:border-hamilton;
 		}
 
 		& :focus:user-invalid {
