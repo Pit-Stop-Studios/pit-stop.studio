@@ -14,9 +14,9 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 
 	return (
 		<article>
-			<header className="section space-y-3 text-center">
+			<header className="section space-y-6 text-center">
 				<h1 className="h1">{post.metadata.title}</h1>
-				<div className="flex flex-wrap items-center justify-center gap-x-4">
+				<div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
 					<Date value={post.publishDate} />
 					<Author author={post.author} />
 					<ReadTime value={post.readTime} />
@@ -27,6 +27,11 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 				<TableOfContents headings={post.headings} />
 
 				<div className={cn(css.body, 'richtext mx-auto max-w-lg md:-order-1')}>
+					<Mask
+						image={logo}
+						className="sm:hiddens mx-auto -mt-4 size-12 md:-mt-8"
+					/>
+
 					<PortableText
 						value={post.body}
 						components={{

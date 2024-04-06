@@ -13,14 +13,15 @@ export default async function Rollup({
 	const posts = await fetchSanity<Sanity.BlogPost[]>(
 		groq`*[_type == 'blog.post']|order(publishDate desc){
 			...,
-			categories[]->
+			categories[]->,
+			author->
 		}`,
 		{ tags: ['posts'] },
 	)
 
 	return (
 		<section className="section space-y-4">
-			<header className="flex flex-wrap items-end gap-4">
+			<header className="flex flex-wrap items-end gap-x-4 gap-y-2">
 				<div className="richtext grow">
 					<PortableText value={content} />
 				</div>
@@ -28,7 +29,7 @@ export default async function Rollup({
 				<CTAList ctas={ctas} />
 			</header>
 
-			<ul className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+			<ul className="carousel max-md:full-bleed grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-8 max-md:px-4 md:grid">
 				{posts?.map((post, key) => (
 					<li key={key}>
 						<PostPreview post={post} />

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Img from '@/ui/Img'
 import Mask from '@/ui/Mask'
 import Date from '@/ui/Date'
+import Author from './Author'
 
 export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 	const { logo } = await getSite()
@@ -12,7 +13,7 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 			className="group space-y-2"
 			href={`/blog/${post.metadata.slug.current}`}
 		>
-			<figure className="bg-ink/5 grid aspect-video place-content-center">
+			<figure className="grid aspect-video place-content-center bg-ink/5">
 				{post.metadata.image ? (
 					<Img
 						className="aspect-video w-full"
@@ -28,7 +29,8 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 				{post.metadata.title}
 			</div>
 
-			<div className="text-sm">
+			<div className="flex flex-wrap items-center justify-between gap-x-4 text-sm">
+				<Author author={post.author} />
 				<Date className="block" value={post.publishDate} />
 			</div>
 		</Link>
