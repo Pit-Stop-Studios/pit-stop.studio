@@ -24,6 +24,7 @@ async function getPage() {
 						internal->{ title, metadata }
 					}
 				},
+				callout->,
 				employees[]->
 			}
 		}`,

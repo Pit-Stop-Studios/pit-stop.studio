@@ -4,6 +4,7 @@ import page from './documents/page'
 import blogPost from './documents/blog.post'
 import blogCategory from './documents/blog.category'
 import employee from './documents/employee'
+import callout from './documents/callout'
 
 // objects
 import cta from './objects/cta'
@@ -13,6 +14,7 @@ import metadata from './objects/metadata'
 
 // modules
 import blogRollup from './modules/blog-rollup'
+import calloutModule from './modules/callout-module'
 import contactForm from './modules/contact-form'
 import employeeList from './modules/employee-list'
 import faqList from './modules/faq-list'
@@ -28,6 +30,7 @@ export const schemaTypes = [
 	blogPost,
 	blogCategory,
 	employee,
+	callout,
 
 	// objects
 	cta,
@@ -37,6 +40,7 @@ export const schemaTypes = [
 
 	// modules
 	blogRollup,
+	calloutModule,
 	contactForm,
 	employeeList,
 	faqList,

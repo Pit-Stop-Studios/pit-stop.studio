@@ -43,6 +43,7 @@ export default defineType({
 			name: 'params',
 			title: 'URL params',
 			type: 'string',
+			hidden: ({ parent }) => parent?.type !== 'internal',
 		}),
 	],
 	preview: {

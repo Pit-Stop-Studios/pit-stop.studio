@@ -37,6 +37,13 @@ declare global {
 			slug: { current: string }
 		}
 
+		type Callout = SanityDocument & {
+			title: string
+			content: any
+			ctas?: CTA[]
+			image?: Image
+		}
+
 		type Employee = SanityDocument & {
 			name: string
 			title: string

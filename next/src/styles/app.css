@@ -114,7 +114,7 @@
 		padding: 0.25em 1.5em;
 		border: 1px dashed;
 		background: theme('colors.canvas');
-		font-weight: bold;
+		font-family: theme('fontFamily.serif');
 		outline: 0;
 		@apply with-icon transition-all focus:highlight;
 

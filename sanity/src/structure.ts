@@ -1,7 +1,13 @@
 import { list, singleton } from './utils'
 import type { StructureResolver } from 'sanity/structure'
 
-import { VscAccount, VscEdit, VscServerProcess, VscTag } from 'react-icons/vsc'
+import {
+	VscAccount,
+	VscEdit,
+	VscInspect,
+	VscServerProcess,
+	VscTag,
+} from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
 	S.list()
@@ -13,6 +19,9 @@ const structure: StructureResolver = (S, context) =>
 
 			list(S, 'Blog posts', 'blog.post').icon(VscEdit),
 			list(S, 'Blog categories', 'blog.category').icon(VscTag),
+			S.divider(),
+
+			list(S, 'Callouts', 'callout').icon(VscInspect),
 			S.divider(),
 
 			list(S, 'Employees', 'employee').icon(VscAccount),

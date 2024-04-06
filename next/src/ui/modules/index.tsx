@@ -1,4 +1,5 @@
 import BlogRollup from './blog/Rollup'
+import CalloutModule from './CalloutModule'
 import ContactForm from './ContactForm'
 import EmployeeList from './EmployeeList'
 import FAQList from './FAQList'
@@ -14,6 +15,8 @@ export default function Modules({ modules }: { modules?: Sanity.Module[] }) {
 				switch (module._type) {
 					case 'blog-rollup':
 						return <BlogRollup {...module} key={module._key} />
+					case 'callout-module':
+						return <CalloutModule {...module} key={module._key} />
 					case 'contact-form':
 						return <ContactForm {...module} key={module._key} />
 					case 'employee-list':
