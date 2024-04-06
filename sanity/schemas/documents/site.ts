@@ -22,6 +22,11 @@ export default defineType({
 			validation: (Rule) => Rule.max(1),
 		}),
 		defineField({
+			name: 'footerMenu',
+			type: 'array',
+			of: [{ type: 'link' }, { type: 'link.list' }],
+		}),
+		defineField({
 			name: 'logo',
 			type: 'image',
 		}),

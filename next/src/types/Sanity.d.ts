@@ -7,6 +7,8 @@ declare global {
 		type Site = SanityDocument & {
 			title: string
 			menu?: (Link | LinkList)[]
+			ctas?: CTA[]
+			footerMenu?: (Link | LinkList)[]
 			logo: Image
 		}
 
@@ -70,7 +72,6 @@ declare global {
 			title: string
 			description: string
 			slug: { current: string }
-			image?: Image
 		}
 
 		type Module = {

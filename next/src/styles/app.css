@@ -63,7 +63,7 @@
 	}
 
 	.h3 {
-		@apply _h;
+		@apply _h text-lg;
 	}
 
 	.h4 {
@@ -93,11 +93,12 @@
 		gap: 0.5em;
 
 		& svg {
-			transition: translate 0.2s ease-in-out;
+			@apply transition-all;
 		}
 
 		&:hover svg {
 			translate: .5ch 0;
+			color: theme('colors.hamilton');
 		}
 	}
 

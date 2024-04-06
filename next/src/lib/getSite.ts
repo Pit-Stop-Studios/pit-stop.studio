@@ -12,6 +12,10 @@ export default async function getSite() {
 						...,
 						internal->{ _type, title, metadata }
 					}
+				},
+				footerMenu[]{
+					...,
+					internal->{ _type, title, metadata }
 				}
 			}
 		`,

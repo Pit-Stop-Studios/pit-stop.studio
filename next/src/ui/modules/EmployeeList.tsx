@@ -9,7 +9,7 @@ export default function EmployeeList({
 	content: any
 }>) {
 	return (
-		<section className="section space-y-8 text-center">
+		<section id="about" className="section space-y-8 text-center">
 			<header className="richtext">
 				<PortableText value={content} />
 			</header>
