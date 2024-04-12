@@ -7,6 +7,7 @@ import TableOfContents from './TableOfContents'
 import Mask from '@/ui/Mask'
 import { PortableText } from '@portabletext/react'
 import AnchorHeading from './AnchorHeading'
+import Img from '@/ui/Img'
 import { cn } from '@/lib/utils'
 import css from './Post.module.css'
 
@@ -33,11 +34,8 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 			<div className="section grid gap-8 md:grid-cols-[1fr,auto]">
 				<TableOfContents headings={post.headings} />
 
-				<div className={cn(css.body, 'richtext mx-auto max-w-lg md:-order-1')}>
-					<Mask
-						image={logo}
-						className="sm:hiddens mx-auto -mt-4 size-12 md:-mt-8"
-					/>
+				<div className={cn(css.body, 'richtext grid gap-4 md:-order-1')}>
+					<Mask image={logo} className="mx-auto -mt-4 size-12 md:-mt-8" />
 
 					<PortableText
 						value={post.body}
@@ -45,6 +43,13 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 							block: {
 								h2: (node) => <AnchorHeading as="h2" {...node} />,
 								h3: (node) => <AnchorHeading as="h3" {...node} />,
+							},
+							types: {
+								image: ({ value }) => (
+									<figure className="max-md:full-bleed md:![grid-column:bleed]">
+										<Img className="mx-auto" image={value} imageWidth={1000} />
+									</figure>
+								),
 							},
 						}}
 					/>

@@ -1,6 +1,15 @@
 .body {
+	@screen md {
+		grid-template-columns: [bleed-start] 1fr [content-start] min(32rem, 100%) [content-end] 1fr [bleed-end];
+
+		&>* {
+			grid-template-columns: inherit;
+			grid-column: content;
+		}
+	}
+
 	& :is(h1, h2, h3, h4, h5, h6) {
-		margin-top: 1.5em !important;
+		margin-top: 1em !important;
 		text-wrap: pretty;
 	}
 

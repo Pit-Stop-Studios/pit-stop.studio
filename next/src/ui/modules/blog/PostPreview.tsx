@@ -14,12 +14,13 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 			className="group block space-y-2 outline-0"
 			href={`/blog/${post.metadata.slug.current}`}
 		>
-			<figure className="relative grid aspect-video place-content-center bg-ink/5">
+			<figure className="relative aspect-video place-content-center bg-ink/5 has-[svg]:grid">
 				{post.metadata.image ? (
 					<Img
-						className="aspect-video w-full"
+						className="aspect-video w-full object-cover"
 						image={post.metadata.image}
 						alt={post.metadata.title}
+						imageWidth={600}
 					/>
 				) : (
 					<Mask image={logo} className="size-[8em] opacity-5" />
