@@ -38,7 +38,12 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 			<div className="section grid gap-8 md:grid-cols-[1fr,auto]">
 				<TableOfContents headings={post.headings} />
 
-				<div className={cn(css.body, 'richtext grid gap-4 md:-order-1')}>
+				<div
+					className={cn(
+						css.body,
+						'richtext mx-auto grid gap-4 max-md:max-w-lg md:-order-1',
+					)}
+				>
 					<Mask image={logo} className="mx-auto -mt-4 size-12 md:-mt-8" />
 
 					<PortableText
