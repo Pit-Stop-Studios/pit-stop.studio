@@ -91,15 +91,6 @@
 		justify-content: center;
 		text-align: center;
 		gap: 0.5em;
-
-		& svg {
-			@apply transition-all;
-		}
-
-		&:hover svg {
-			translate: .5ch 0;
-			color: theme('colors.hamilton');
-		}
 	}
 
 	.highlight {
@@ -130,6 +121,15 @@
 
 	.action-arrow {
 		@apply with-icon focus:highlight;
+
+		& svg {
+			@apply transition-all;
+		}
+
+		&:hover svg {
+			translate: .5ch 0;
+			color: theme('colors.hamilton');
+		}
 
 		&:focus-within svg {
 			@apply text-hamilton;

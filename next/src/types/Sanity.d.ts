@@ -60,6 +60,7 @@ declare global {
 
 		type Image = SanityImageAssetDocument & {
 			alt?: string
+			caption?: string
 		}
 
 		type Link = {
