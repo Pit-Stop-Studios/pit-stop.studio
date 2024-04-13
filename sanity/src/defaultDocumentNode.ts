@@ -8,17 +8,22 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 ) => {
 	switch (schemaType) {
 		case 'page':
+		case 'blog.post':
 			return S.document().views([
 				S.view.form(),
 				S.view
 					.component(Iframe)
 					.options({
 						url: (doc: SanityPage) => {
+							const domain = isDev
+								? 'http://localhost:3000'
+								: 'https://pit-stop.studio'
+
 							const slug = doc?.metadata?.slug?.current
 							const path = slug === 'index' ? '' : slug
-							return isDev
-								? `http://localhost:3000/${path}`
-								: `https://staging--takumi-maru-web.vercel.app/${path}`
+							const directory = schemaType === 'blog.post' ? 'blog' : null
+
+							return [domain, directory, path].filter(Boolean).join('/')
 						},
 						reload: {
 							button: true,

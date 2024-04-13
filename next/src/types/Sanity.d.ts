@@ -83,6 +83,7 @@ declare global {
 			description: string
 			slug: { current: string }
 			image?: Image
+			ogimage?: string
 		}
 
 		type Module = {

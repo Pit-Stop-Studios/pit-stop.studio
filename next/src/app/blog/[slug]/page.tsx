@@ -1,6 +1,7 @@
 import { fetchSanity, groq } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
 import Post from '@/ui/modules/blog/Post'
+import processMetadata from '@/lib/processMetadata'
 
 export default async function Page({ params }: Props) {
 	const post = await getPost(params)
@@ -11,7 +12,7 @@ export default async function Page({ params }: Props) {
 export async function generateMetadata({ params }: Props) {
 	const post = await getPost(params)
 	if (!post) notFound()
-	return post.metadata
+	return processMetadata(post)
 }
 
 async function getPost(params: Props['params']) {
@@ -25,7 +26,11 @@ async function getPost(params: Props['params']) {
 				'text': pt::text(@)
 			},
 			categories[]->,
-			author->
+			author->,
+			metadata{
+				...,
+				'ogimage': image.asset->url
+			}
 		}`,
 		{
 			params,
