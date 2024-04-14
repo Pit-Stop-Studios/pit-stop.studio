@@ -1,4 +1,3 @@
-import getSite from '@/lib/getSite'
 import Categories from './Categories'
 import Date from '@/ui/Date'
 import Author from './Author'
@@ -10,10 +9,9 @@ import AnchorHeading from './AnchorHeading'
 import Image from './Image'
 import { cn } from '@/lib/utils'
 import css from './Post.module.css'
+import BackToBlog from './BackToBlog'
 
-export default async function Post({ post }: { post: Sanity.BlogPost }) {
-	const { logo } = await getSite()
-
+export default function Post({ post }: { post: Sanity.BlogPost }) {
 	return (
 		<article>
 			<header className="section space-y-3 text-center">
@@ -38,28 +36,30 @@ export default async function Post({ post }: { post: Sanity.BlogPost }) {
 			<div className="section grid gap-8 md:grid-cols-[1fr,auto]">
 				<TableOfContents headings={post.headings} />
 
-				<div
-					className={cn(
-						css.body,
-						'richtext mx-auto grid gap-4 max-md:max-w-lg md:-order-1',
-					)}
-				>
-					<Mask image={logo} className="mx-auto -mt-4 size-12 md:-mt-8" />
+				<div className="md:-order-1">
+					<BackToBlog />
 
-					<PortableText
-						value={post.body}
-						components={{
-							block: {
-								h2: (node) => <AnchorHeading as="h2" {...node} />,
-								h3: (node) => <AnchorHeading as="h3" {...node} />,
-							},
-							types: {
-								image: Image,
-							},
-						}}
-					/>
+					<div
+						className={cn(
+							css.body,
+							'richtext mx-auto mb-8 grid gap-4 max-md:max-w-lg',
+						)}
+					>
+						<PortableText
+							value={post.body}
+							components={{
+								block: {
+									h2: (node) => <AnchorHeading as="h2" {...node} />,
+									h3: (node) => <AnchorHeading as="h3" {...node} />,
+								},
+								types: {
+									image: Image,
+								},
+							}}
+						/>
+					</div>
 
-					<Mask image={logo} className="mx-auto size-12" />
+					<BackToBlog />
 				</div>
 			</div>
 		</article>

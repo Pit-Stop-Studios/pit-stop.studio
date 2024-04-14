@@ -1,11 +1,21 @@
 .body {
 	@screen md {
-		grid-template-columns: [bleed-start] 1fr [content-start] min(32rem, 100%) [content-end] 1fr [bleed-end];
+		grid-template-columns: [bleed-start] 1fr [content-start] auto [content-end] 1fr [bleed-end];
 
 		&>* {
 			grid-template-columns: inherit;
 			grid-column: content;
 		}
+
+		&>*:not([class*="grid-column:bleed"]) {
+			max-width: 32rem;
+		}
+	}
+
+	&> :first-child::first-letter {
+		margin-right: 0.1ch;
+		font-size: theme('fontSize.7xl');
+		font-family: theme('fontFamily.serif');
 	}
 
 	& :is(h1, h2, h3, h4, h5, h6) {
@@ -20,15 +30,5 @@
 
 	& :is(h2, h3):not(:hover) a {
 		display: none;
-	}
-
-	& a:not([href^="#"]) {
-		color: theme('colors.hamilton');
-		text-decoration: dotted underline;
-		text-underline-offset: 2px;
-
-		&:hover {
-			text-decoration: solid underline;
-		}
 	}
 }

@@ -190,7 +190,7 @@
 		scroll-snap-type: x mandatory;
 
 		&>* {
-			flex: 0 0 calc(var(--size, min(300px, 80vw)));
+			flex: 0 0 calc(min(var(--size, 300px), 80vw));
 			scroll-snap-align: center;
 		}
 	}
@@ -242,6 +242,20 @@
 		& :is(ul, ol) {
 			list-style: revert;
 			padding-left: 1.5em;
+		}
+
+		& blockquote {
+			@apply px-4 py-3 border-l-4 border-hamilton bg-hamilton/10;
+		}
+
+		& a:is(:not([href^="#"], :not([href*="action"]))) {
+			color: theme('colors.hamilton');
+			text-decoration: dotted underline;
+			text-underline-offset: 2px;
+
+			&:hover {
+				text-decoration: solid underline;
+			}
 		}
 	}
 

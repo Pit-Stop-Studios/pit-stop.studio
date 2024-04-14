@@ -19,14 +19,24 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'cta' }],
 		}),
+		defineField({
+			name: 'layout',
+			type: 'string',
+			options: {
+				list: ['carousel', 'grid'],
+				layout: 'radio',
+			},
+			initialValue: 'carousel',
+		}),
 	],
 	preview: {
 		select: {
 			content: 'content',
+			layout: 'layout',
 		},
-		prepare: ({ content }) => ({
+		prepare: ({ content, layout }) => ({
 			title: getBlockText(content),
-			subtitle: 'Blog rollup',
+			subtitle: `Blog rollup (${layout})`,
 		}),
 	},
 })

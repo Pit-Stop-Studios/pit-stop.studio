@@ -27,7 +27,11 @@ export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 				)}
 
 				<div className="absolute bottom-0 right-0 p-2 text-xs">
-					<Categories className="justify-end" categories={post.categories} />
+					<Categories
+						className="justify-end"
+						categories={post.categories}
+						inverted
+					/>
 				</div>
 			</figure>
 

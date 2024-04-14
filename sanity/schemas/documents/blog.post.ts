@@ -24,6 +24,10 @@ export default defineType({
 							type: 'text',
 							rows: 2,
 						}),
+						defineField({
+							name: 'source',
+							type: 'url',
+						}),
 					],
 				},
 			],
