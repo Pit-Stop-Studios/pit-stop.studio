@@ -8,7 +8,7 @@ export default function Form({
 	return (
 		<form
 			className="form grid space-y-3"
-			action="https://formspree.io/f/xjvnpvjr"
+			action="https://formspree.io/f/xqkrgopq"
 			method="POST"
 		>
 			<label>
