@@ -6,12 +6,14 @@ import { cn } from '@/lib/utils'
 
 export default async function Rollup({
 	postsOverride,
+	blocklist,
 	content,
 	ctas,
 	layout,
 	heading,
 }: Partial<{
 	postsOverride: Sanity.BlogPost[]
+	blocklist: string[]
 	content: any
 	ctas: Sanity.CTA[]
 	layout: 'carousel' | 'grid'
@@ -24,6 +26,10 @@ export default async function Rollup({
 			author->
 		}`,
 		{ tags: ['posts'] },
+	)
+
+	const processedPosts = (postsOverride || posts)?.filter(
+		(post) => !blocklist?.includes(post._id),
 	)
 
 	return (
@@ -44,7 +50,7 @@ export default async function Rollup({
 						: 'grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))]',
 				)}
 			>
-				{(postsOverride || posts)?.map((post, key) => (
+				{processedPosts?.map((post, key) => (
 					<li key={key}>
 						<PostPreview post={post} />
 					</li>

@@ -10,6 +10,7 @@ import {
 	TableOfContents,
 } from '@/ui/modules/blog'
 import { PortableText } from '@portabletext/react'
+import Rollup from '@/ui/modules/blog/Rollup'
 import { cn } from '@/lib/utils'
 import css from './Post.module.css'
 
@@ -80,6 +81,16 @@ export default function Post({ post }: { post: Sanity.BlogPost }) {
 					</div>
 				</div>
 			</article>
+
+			<Rollup
+				heading={
+					<h2>
+						Recent articles on <em>PitHub</em>
+					</h2>
+				}
+				blocklist={[post._id]}
+				layout="carousel"
+			/>
 
 			<script
 				type="application/ld+json"
