@@ -36,12 +36,12 @@ export default async function Rollup({
 				className={cn(
 					'gap-8',
 					layout === 'carousel'
-						? 'carousel max-md:full-bleed max-md:px-4 md:[--size:275px]'
+						? 'carousel max-md:full-bleed *:grow max-md:px-4 md:[--size:275px]'
 						: 'grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))]',
 				)}
 			>
 				{posts?.map((post, key) => (
-					<li className="!grow" key={key}>
+					<li key={key}>
 						<PostPreview post={post} />
 					</li>
 				))}
