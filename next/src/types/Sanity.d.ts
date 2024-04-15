@@ -48,7 +48,9 @@ declare global {
 			name: string
 			title: string
 			content?: any
+			description?: string
 			image: Image
+			metadata: Metadata
 		}
 
 		// objects

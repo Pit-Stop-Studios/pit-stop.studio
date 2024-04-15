@@ -1,6 +1,6 @@
 import { fetchSanity, groq } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
-import Post from '@/ui/modules/blog/Post'
+import Post from '@/app/blog/[slug]/Post'
 import processMetadata from '@/lib/processMetadata'
 
 export default async function Page({ params }: Props) {

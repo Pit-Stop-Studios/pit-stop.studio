@@ -24,6 +24,10 @@ export default defineType({
 			name: 'image',
 			type: 'image',
 		}),
+		defineField({
+			name: 'metadata',
+			type: 'metadata',
+		}),
 	],
 	preview: {
 		select: {

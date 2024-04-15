@@ -1,5 +1,6 @@
 import { PortableText } from 'next-sanity'
 import Avatar from '../Avatar'
+import Link from 'next/link'
 
 export default function EmployeeList({
 	employees,
@@ -18,8 +19,15 @@ export default function EmployeeList({
 				{employees?.map((employee, key) => (
 					<div className="basis-[300px] *:space-y-3" key={key}>
 						<dt>
-							<Avatar className="mx-auto" image={employee.image} />
-							<div className="h3">{employee.name}</div>
+							<Link
+								className="group mx-auto block max-w-max space-y-3"
+								href={`/employee/${employee.metadata.slug.current}`}
+							>
+								<Avatar className="mx-auto" image={employee.image} />
+								<div className="h3 decoration-dotted underline-offset-2 group-hover:underline">
+									{employee.name}
+								</div>
+							</Link>
 						</dt>
 						<dd>
 							<div>{employee.title}</div>

@@ -9,6 +9,7 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 	switch (schemaType) {
 		case 'page':
 		case 'blog.post':
+		case 'employee':
 			return S.document().views([
 				S.view.form(),
 				S.view
@@ -21,7 +22,12 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 
 							const slug = doc?.metadata?.slug?.current
 							const path = slug === 'index' ? '' : slug
-							const directory = schemaType === 'blog.post' ? 'blog' : null
+							const directory =
+								schemaType === 'blog.post'
+									? 'blog'
+									: schemaType === 'employee'
+										? 'employee'
+										: null
 
 							return [domain, directory, path].filter(Boolean).join('/')
 						},

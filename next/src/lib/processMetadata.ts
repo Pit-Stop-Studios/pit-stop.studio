@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export default async function processMetadata({
 	metadata,
 	noIndex,
-}: Sanity.Page | Sanity.BlogPost): Promise<Metadata> {
+}: Sanity.Page | Sanity.BlogPost | Sanity.Employee): Promise<Metadata> {
 	const { title, description, slug, ogimage } = metadata
 
 	return {

@@ -5,13 +5,17 @@ import PostPreview from './PostPreview'
 import { cn } from '@/lib/utils'
 
 export default async function Rollup({
+	postsOverride,
 	content,
 	ctas,
 	layout,
+	heading,
 }: Partial<{
+	postsOverride: Sanity.BlogPost[]
 	content: any
 	ctas: Sanity.CTA[]
 	layout: 'carousel' | 'grid'
+	heading: React.ReactNode
 }>) {
 	const posts = await fetchSanity<Sanity.BlogPost[]>(
 		groq`*[_type == 'blog.post' && defined(body)]|order(publishDate desc){
@@ -23,10 +27,10 @@ export default async function Rollup({
 	)
 
 	return (
-		<section className="section space-y-4">
+		<section className="section space-y-6">
 			<header className="flex flex-wrap items-end gap-x-4 gap-y-2">
 				<div className="richtext grow">
-					<PortableText value={content} />
+					{heading || <PortableText value={content} />}
 				</div>
 
 				<CTAList ctas={ctas} />
@@ -40,7 +44,7 @@ export default async function Rollup({
 						: 'grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))]',
 				)}
 			>
-				{posts?.map((post, key) => (
+				{(postsOverride || posts)?.map((post, key) => (
 					<li key={key}>
 						<PostPreview post={post} />
 					</li>

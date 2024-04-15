@@ -1,13 +1,15 @@
 import { BASE_URL } from '@/lib/env'
-import Categories from './Categories'
 import Date from '@/ui/Date'
-import Author from './Author'
-import ReadTime from './ReadTime'
-import TableOfContents from './TableOfContents'
-import BackToBlog from './BackToBlog'
+import {
+	AnchorHeading,
+	Author,
+	BackToBlog,
+	Categories,
+	Image,
+	ReadTime,
+	TableOfContents,
+} from '@/ui/modules/blog'
 import { PortableText } from '@portabletext/react'
-import AnchorHeading from './AnchorHeading'
-import Image from './Image'
 import { cn } from '@/lib/utils'
 import css from './Post.module.css'
 
