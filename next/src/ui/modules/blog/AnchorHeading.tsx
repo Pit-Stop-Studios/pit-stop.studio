@@ -14,7 +14,9 @@ export default function AnchorHeading({
 		<Tag id={id}>
 			{children}
 
-			<a href={`#${id}`}>🔗</a>
+			<a className="!no-underline" href={`#${id}`}>
+				🔗
+			</a>
 		</Tag>
 	)
 }

@@ -248,7 +248,7 @@
 			@apply px-4 py-3 border-l-4 border-hamilton bg-hamilton/10;
 		}
 
-		& a:is(:not([href^="#"], :not([href*="action"]))) {
+		& a:not([class*="action"]) {
 			color: theme('colors.hamilton');
 			text-decoration: dotted underline;
 			text-underline-offset: 2px;
