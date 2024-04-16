@@ -87,6 +87,7 @@ declare global {
 			slug: { current: string }
 			image?: Image
 			ogimage?: string
+			noIndex?: boolean
 		}
 
 		type Module = {

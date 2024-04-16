@@ -28,5 +28,11 @@ export default defineType({
 			name: 'image',
 			type: 'image',
 		}),
+		defineField({
+			name: 'noIndex',
+			description: 'Prevent search engines from indexing this page.',
+			type: 'boolean',
+			initialValue: false,
+		}),
 	],
 })

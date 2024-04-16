@@ -1,30 +1,25 @@
-import { list, singleton } from './utils'
+import { singleton } from './utils'
 import type { StructureResolver } from 'sanity/structure'
 
-import {
-	VscAccount,
-	VscEdit,
-	VscInspect,
-	VscServerProcess,
-	VscTag,
-} from 'react-icons/vsc'
+import { VscServerProcess } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
 	S.list()
 		.title('Content')
 		.items([
 			singleton(S, 'Site', 'site').icon(VscServerProcess),
-			list(S, 'Pages', 'page'),
+			S.documentTypeListItem('page').title('Pages'),
+			S.documentTypeListItem('redirect').title('Redirects'),
 			S.divider(),
 
-			list(S, 'Blog posts', 'blog.post').icon(VscEdit),
-			list(S, 'Blog categories', 'blog.category').icon(VscTag),
+			S.documentTypeListItem('blog.post').title('Blog posts'),
+			S.documentTypeListItem('blog.category').title('Blog categories'),
 			S.divider(),
 
-			list(S, 'Callouts', 'callout').icon(VscInspect),
+			S.documentTypeListItem('callout').title('Callouts'),
 			S.divider(),
 
-			list(S, 'Employees', 'employee').icon(VscAccount),
+			S.documentTypeListItem('employee').title('Employees'),
 		])
 
 export default structure

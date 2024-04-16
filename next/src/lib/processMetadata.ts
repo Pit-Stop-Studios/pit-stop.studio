@@ -3,9 +3,8 @@ import type { Metadata } from 'next'
 
 export default async function processMetadata({
 	metadata,
-	noIndex,
 }: Sanity.Page | Sanity.BlogPost | Sanity.Employee): Promise<Metadata> {
-	const { title, description, slug, ogimage } = metadata
+	const { title, description, slug, ogimage, noIndex } = metadata
 
 	return {
 		metadataBase: new URL(BASE_URL),

@@ -1,12 +1,12 @@
 import { createClient, type QueryParams } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import dev from '@/lib/env'
-export { groq } from 'next-sanity'
+export { default as groq } from 'groq'
 
 export const client = createClient({
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
 	dataset: 'production',
-	apiVersion: '2023-12-03',
+	apiVersion: '2024-04-01',
 	useCdn: !dev,
 })
 
