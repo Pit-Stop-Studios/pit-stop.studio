@@ -3,8 +3,8 @@ import type { PortableTextBlock, PortableTextComponentProps } from 'next-sanity'
 
 export default function AnchorHeading({
 	as: Tag,
-	children,
 	value,
+	children,
 }: {
 	as: keyof JSX.IntrinsicElements
 } & PortableTextComponentProps<PortableTextBlock>) {

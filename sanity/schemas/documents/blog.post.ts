@@ -1,5 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { IoIosImage } from 'react-icons/io'
+import { TbLanguageHiragana } from 'react-icons/tb'
+import Ruby from '../../components/Ruby'
 
 export default defineType({
 	name: 'blog.post',
@@ -10,7 +12,28 @@ export default defineType({
 			name: 'body',
 			type: 'array',
 			of: [
-				{ type: 'block' },
+				{
+					type: 'block',
+					marks: {
+						annotations: [
+							{
+								name: 'ruby',
+								title: 'Ruby',
+								type: 'object',
+								icon: TbLanguageHiragana,
+								fields: [
+									defineField({
+										name: 'annotation',
+										type: 'string',
+									}),
+								],
+								components: {
+									annotation: Ruby,
+								},
+							},
+						],
+					},
+				},
 				{
 					type: 'image',
 					icon: IoIosImage,

@@ -1,10 +1,11 @@
-import AnchorHeading from '@/ui/modules/blog/AnchorHeading'
-import Author from '@/ui/modules/blog/Author'
-import BackToBlog from '@/ui/modules/blog/BackToBlog'
-import Categories from '@/ui/modules/blog/Categories'
-import Image from '@/ui/modules/blog/Image'
-import ReadTime from '@/ui/modules/blog/ReadTime'
-import TableOfContents from '@/ui/modules/blog/TableOfContents'
+import AnchorHeading from './AnchorHeading'
+import Author from './Author'
+import BackToBlog from './BackToBlog'
+import Categories from './Categories'
+import Image from './Image'
+import Ruby from './Ruby'
+import ReadTime from './ReadTime'
+import TableOfContents from './TableOfContents'
 
 export {
 	AnchorHeading,
@@ -13,5 +14,6 @@ export {
 	Categories,
 	Image,
 	ReadTime,
+	Ruby,
 	TableOfContents,
 }

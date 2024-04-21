@@ -7,6 +7,7 @@ import {
 	Categories,
 	Image,
 	ReadTime,
+	Ruby,
 	TableOfContents,
 } from '@/ui/modules/blog'
 import { PortableText } from '@portabletext/react'
@@ -69,6 +70,9 @@ export default function Post({ post }: { post: Sanity.BlogPost }) {
 									block: {
 										h2: (node) => <AnchorHeading as="h2" {...node} />,
 										h3: (node) => <AnchorHeading as="h3" {...node} />,
+									},
+									marks: {
+										ruby: Ruby,
 									},
 									types: {
 										image: Image,
