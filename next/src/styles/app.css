@@ -44,6 +44,14 @@
 	::-webkit-details-marker {
 		display: none;
 	}
+
+	label {
+		cursor: pointer;
+	}
+
+	select {
+		cursor: pointer;
+	}
 }
 
 @layer components {
@@ -198,13 +206,13 @@
 	.form {
 
 		& input,
-		textarea {
+		textarea,
+		select {
 			width: 100%;
 			padding: .25em .5em;
-			border-bottom: 1px solid;
 			border-radius: 0;
 			background-color: transparent;
-			@apply focus:highlight hover:border-hamilton focus:border-hamilton;
+			@apply border-b border-ink/20 focus:highlight hover:border-hamilton focus:border-hamilton;
 		}
 
 		& :focus:user-invalid {

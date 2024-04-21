@@ -13,7 +13,7 @@ export default function ContactForm({
 			id="contact"
 			className="section grid gap-x-12 gap-y-8 md:grid-cols-2"
 		>
-			<div className="richtext">
+			<div className="richtext md:sticky-below-header self-start [--offset:1rem]">
 				<PortableText value={content} />
 			</div>
 

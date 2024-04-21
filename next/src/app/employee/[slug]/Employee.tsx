@@ -53,7 +53,7 @@ export default async function Employee({
 
 					<figure>
 						<Img
-							className="mx-auto w-full max-w-lg"
+							className="mx-auto w-full max-w-lg shadow-[.7ch_.7ch_#000]"
 							image={employee.image}
 							imageWidth={1000}
 						/>
