@@ -212,7 +212,7 @@
 			padding: .25em .5em;
 			border-radius: 0;
 			background-color: transparent;
-			@apply border-b border-ink/20 focus:highlight hover:border-hamilton focus:border-hamilton;
+			@apply border-b border-ink/10 focus:highlight hover:border-hamilton focus:border-hamilton;
 		}
 
 		& :focus:user-invalid {

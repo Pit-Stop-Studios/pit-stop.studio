@@ -23,7 +23,7 @@ export default function FAQList({
 			<div>
 				{items?.map(({ question, answer }, key) => (
 					<details
-						className="accordion border-b"
+						className="accordion border-b border-ink/10"
 						itemScope
 						itemProp="mainEntity"
 						itemType="https://schema.org/Question"
