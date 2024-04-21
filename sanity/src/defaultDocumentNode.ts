@@ -2,6 +2,8 @@ import { isDev, type SanityDocument } from 'sanity'
 import { Iframe } from 'sanity-plugin-iframe-pane'
 import type { DefaultDocumentNodeResolver } from 'sanity/structure'
 
+const previewUrl = 'https://pit-stop.studio'
+
 const defaultDocumentNode: DefaultDocumentNodeResolver = (
 	S,
 	{ schemaType },
@@ -15,10 +17,12 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 				S.view
 					.component(Iframe)
 					.options({
-						url: (doc: SanityPage) => {
-							const domain = isDev
-								? 'http://localhost:3000'
-								: 'https://pit-stop.studio'
+						url: (
+							doc: SanityDocument & {
+								metadata?: { slug?: { current: string } }
+							},
+						) => {
+							const base = isDev ? 'http://localhost:3000' : previewUrl
 
 							const slug = doc?.metadata?.slug?.current
 							const path = slug === 'index' ? '' : slug
@@ -29,7 +33,7 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 										? 'employee'
 										: null
 
-							return [domain, directory, path].filter(Boolean).join('/')
+							return [base, directory, path].filter(Boolean).join('/')
 						},
 						reload: {
 							button: true,
@@ -44,7 +48,3 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 }
 
 export default defaultDocumentNode
-
-type SanityPage = SanityDocument & {
-	metadata?: { slug?: { current: string } }
-}
