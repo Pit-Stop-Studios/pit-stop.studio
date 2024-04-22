@@ -24,6 +24,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 				'url': $baseUrl + 'blog/' + metadata.slug.current,
 				'lastModified': _updatedAt,
 				'priority': 0.4
+			},
+			'employees': *[_type == 'employee']|order(name){
+				'url': $baseUrl + 'employee/' + metadata.slug.current,
+				'lastModified': _updatedAt,
+				'priority': 0.3
 			}
 		}`,
 		{
