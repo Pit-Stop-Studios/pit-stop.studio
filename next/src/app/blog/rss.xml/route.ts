@@ -16,9 +16,9 @@ export async function GET() {
 			},
 			'posts': *[_type == 'blog.post']{
 				_type,
-				title,
 				publishDate,
-				metadata
+				metadata,
+				'image': metadata.image.asset->url
 			}
 		}`,
 		{ tags: ['blog-rss'] },
@@ -35,10 +35,13 @@ export async function GET() {
 
 	posts.map((post) =>
 		feed.item({
-			title: post.title,
+			title: post.metadata.title,
 			url: processUrl(post),
 			date: post.publishDate,
 			description: post.metadata.description,
+			enclosure: {
+				url: post.image,
+			},
 		}),
 	)
 
