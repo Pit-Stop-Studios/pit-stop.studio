@@ -1,5 +1,5 @@
 import { PortableText } from 'next-sanity'
-import Avatar from '../Avatar'
+import Avatar from '@/ui/Avatar'
 import Link from 'next/link'
 
 export default function EmployeeList({

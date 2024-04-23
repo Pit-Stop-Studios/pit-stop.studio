@@ -1,6 +1,6 @@
 import getSite from '@/lib/getSite'
 import Wrapper from './Wrapper'
-import Logo from '../Logo'
+import Logo from '@/ui/Logo'
 import LinkList from './LinkList'
 import CTA from '@/ui/CTA'
 import CTAList from '@/ui/CTAList'

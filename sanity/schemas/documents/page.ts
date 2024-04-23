@@ -15,6 +15,7 @@ export default defineType({
 			of: [
 				{ type: 'blog-rollup' },
 				{ type: 'callout-module' },
+				{ type: 'case-study-list' },
 				{ type: 'contact-form' },
 				{ type: 'employee-list' },
 				{ type: 'faq-list' },

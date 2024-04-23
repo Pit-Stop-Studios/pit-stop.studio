@@ -1,6 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import CTAList from '@/ui/CTAList'
-import Img from '../Img'
+import Img from '@/ui/Img'
 
 export default function HeroCentered({
 	content,
@@ -35,7 +35,7 @@ export default function HeroCentered({
 						},
 					}}
 				/>
-				<CTAList ctas={ctas} />
+				<CTAList ctas={ctas} className="flex-col items-start gap-y-1" />
 			</div>
 		</section>
 	)

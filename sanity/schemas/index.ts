@@ -5,6 +5,7 @@ import redirect from './documents/redirect'
 import blogPost from './documents/blog.post'
 import blogCategory from './documents/blog.category'
 import employee from './documents/employee'
+import caseStudy from './documents/case-study'
 import callout from './documents/callout'
 
 // objects
@@ -16,6 +17,7 @@ import metadata from './objects/metadata'
 // modules
 import blogRollup from './modules/blog-rollup'
 import calloutModule from './modules/callout-module'
+import caseStudyList from './modules/case-study-list'
 import contactForm from './modules/contact-form'
 import employeeList from './modules/employee-list'
 import faqList from './modules/faq-list'
@@ -32,6 +34,7 @@ export const schemaTypes = [
 	blogPost,
 	blogCategory,
 	employee,
+	caseStudy,
 	callout,
 
 	// objects
@@ -43,6 +46,7 @@ export const schemaTypes = [
 	// modules
 	blogRollup,
 	calloutModule,
+	caseStudyList,
 	contactForm,
 	employeeList,
 	faqList,

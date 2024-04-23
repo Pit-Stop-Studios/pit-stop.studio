@@ -145,10 +145,11 @@
 	}
 
 	.link {
-		text-decoration: underline;
+		text-decoration: underline dotted;
+		text-underline-offset: 2px;
 
 		&:hover {
-			text-decoration-thickness: 2px;
+			text-decoration-style: solid;
 		}
 	}
 

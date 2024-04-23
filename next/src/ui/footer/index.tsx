@@ -2,7 +2,7 @@ import getSite from '@/lib/getSite'
 import Logo from '@/ui/Logo'
 import { cn } from '@/lib/utils'
 import css from './Footer.module.css'
-import CTA from '../CTA'
+import CTA from '@/ui/CTA'
 
 export default async function Footer() {
 	const { title, description, footerMenu } = await getSite()

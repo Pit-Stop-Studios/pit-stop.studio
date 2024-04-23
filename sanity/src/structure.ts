@@ -16,10 +16,9 @@ const structure: StructureResolver = (S, context) =>
 			S.documentTypeListItem('blog.category').title('Blog categories'),
 			S.divider(),
 
-			S.documentTypeListItem('callout').title('Callouts'),
-			S.divider(),
-
 			S.documentTypeListItem('employee').title('Employees'),
+			S.documentTypeListItem('case-study').title('Case Studies'),
+			S.documentTypeListItem('callout').title('Callouts'),
 		])
 
 export default structure

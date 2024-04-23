@@ -1,6 +1,6 @@
 import { PortableText } from 'next-sanity'
-import CTAList from '../CTAList'
-import Img from '../Img'
+import CTAList from '@/ui/CTAList'
+import Img from '@/ui/Img'
 
 export default function CalloutModule({
 	callout,
