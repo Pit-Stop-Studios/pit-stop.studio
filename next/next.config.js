@@ -28,6 +28,20 @@ const nextConfig = {
 		}))
 	},
 
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers: [
+					{
+						key: 'X-Frame-Options',
+						value: 'ALLOW-FROM https://pit-stop.sanity.studio',
+					},
+				],
+			},
+		]
+	},
+
 	// logging: {
 	// 	fetches: {
 	// 		fullUrl: true,
