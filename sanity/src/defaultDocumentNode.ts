@@ -1,3 +1,4 @@
+import { VscEdit, VscEye } from 'react-icons/vsc'
 import { isDev, type SanityDocument } from 'sanity'
 import { Iframe } from 'sanity-plugin-iframe-pane'
 import type { DefaultDocumentNodeResolver } from 'sanity/structure'
@@ -8,14 +9,18 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 	S,
 	{ schemaType },
 ) => {
+	const editorView = S.view.form().icon(VscEdit)
+
 	switch (schemaType) {
 		case 'page':
 		case 'blog.post':
 		case 'employee':
 			return S.document().views([
-				S.view.form(),
+				editorView,
 				S.view
 					.component(Iframe)
+					.title('Preview')
+					.icon(VscEye)
 					.options({
 						url: (
 							doc: SanityDocument & {
@@ -38,12 +43,11 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
 						reload: {
 							button: true,
 						},
-					})
-					.title('Preview'),
+					}),
 			])
 
 		default:
-			return S.document().views([S.view.form()])
+			return S.document().views([editorView])
 	}
 }
 
