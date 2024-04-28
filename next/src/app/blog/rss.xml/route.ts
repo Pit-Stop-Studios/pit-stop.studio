@@ -27,7 +27,7 @@ export async function GET() {
 	const url = processUrl(blog)
 
 	const feed = new RSS({
-		title: blog.title,
+		title: blog.metadata.title,
 		site_url: url,
 		feed_url: `${url}/rss.xml`,
 		language: 'ja',
