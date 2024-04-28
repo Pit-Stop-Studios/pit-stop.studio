@@ -3,7 +3,7 @@ import { isDev, type SanityDocument } from 'sanity'
 import { Iframe } from 'sanity-plugin-iframe-pane'
 import type { DefaultDocumentNodeResolver } from 'sanity/structure'
 
-const previewUrl = 'https://pit-stop.studio'
+const previewUrl = 'https://pit-stop-studios-git-staging-nuotsu-dev.vercel.app'
 
 const defaultDocumentNode: DefaultDocumentNodeResolver = (
 	S,
