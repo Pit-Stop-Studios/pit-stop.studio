@@ -34,8 +34,8 @@ const nextConfig = {
 				source: '/(.*)',
 				headers: [
 					{
-						key: 'X-Frame-Options',
-						value: 'SAMEORIGIN',
+						key: 'Content-Security-Policy',
+						value: 'frame-ancestors https://pit-stop.sanity.studio',
 					},
 				],
 			},
