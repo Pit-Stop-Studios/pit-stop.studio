@@ -14,9 +14,9 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
-			name: 'menu',
-			type: 'array',
-			of: [{ type: 'link' }, { type: 'link.list' }],
+			name: 'headerMenu',
+			type: 'reference',
+			to: [{ type: 'navigation' }],
 		}),
 		defineField({
 			name: 'ctas',
@@ -27,8 +27,8 @@ export default defineType({
 		}),
 		defineField({
 			name: 'footerMenu',
-			type: 'array',
-			of: [{ type: 'link' }, { type: 'link.list' }],
+			type: 'reference',
+			to: [{ type: 'navigation' }],
 		}),
 		defineField({
 			name: 'logo',

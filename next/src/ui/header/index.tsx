@@ -1,4 +1,4 @@
-import getSite from '@/lib/getSite'
+import { getSite } from '@/lib/sanity'
 import Wrapper from './Wrapper'
 import Logo from '@/ui/Logo'
 import LinkList from './LinkList'
@@ -6,7 +6,7 @@ import CTA from '@/ui/CTA'
 import CTAList from '@/ui/CTAList'
 
 export default async function Header() {
-	const { menu, ctas } = await getSite()
+	const { headerMenu, ctas } = await getSite()
 
 	return (
 		<Wrapper className="sticky top-0 z-10 border-b border-current bg-canvas p-4">
@@ -14,7 +14,7 @@ export default async function Header() {
 				<Logo />
 
 				<nav className="flex gap-4">
-					{menu?.map((item, key) => {
+					{headerMenu?.items?.map((item, key) => {
 						switch (item._type) {
 							case 'link':
 								return <CTA className="link" link={item} key={key} />

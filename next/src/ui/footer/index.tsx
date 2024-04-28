@@ -1,4 +1,4 @@
-import getSite from '@/lib/getSite'
+import { getSite } from '@/lib/sanity'
 import Logo from '@/ui/Logo'
 import { cn } from '@/lib/utils'
 import css from './Footer.module.css'
@@ -19,7 +19,7 @@ export default async function Footer() {
 					</div>
 
 					<nav className="flex items-center justify-center gap-x-12 gap-y-3 max-md:flex-col">
-						{footerMenu?.map((item, key) => {
+						{footerMenu?.items?.map((item, key) => {
 							switch (item._type) {
 								case 'link':
 									return (

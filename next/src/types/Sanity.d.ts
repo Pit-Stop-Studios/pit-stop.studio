@@ -1,4 +1,5 @@
-import type { SanityDocument, SanityImageAssetDocument } from 'next-sanity'
+import type { SanityDocument } from 'next-sanity'
+import type { SanityImageObject } from '@sanity/image-url/lib/types/types'
 
 declare global {
 	namespace Sanity {
@@ -7,21 +8,28 @@ declare global {
 		type Site = SanityDocument & {
 			title: string
 			description: string
-			menu?: (Link | LinkList)[]
+			headerMenu?: Navigation
 			ctas?: CTA[]
-			footerMenu?: (Link | LinkList)[]
+			footerMenu?: Navigation
 			logo: Image
 		}
 
-		type Page = SanityDocument & {
-			_type
-			page
+		type Navigation = SanityDocument & {
 			title: string
-			modules?: Module[]
+			items?: (Link | LinkList)[]
+		}
+
+		type PageBase = SanityDocument & {
+			title?: string
 			metadata: Metadata
 		}
 
-		type BlogPost = SanityDocument & {
+		type Page = PageBase & {
+			readonly _type: 'page'
+			modules?: Module[]
+		}
+
+		type BlogPost = PageBase & {
 			readonly _type: 'blog.post'
 			body: any
 			readTime: number
@@ -29,7 +37,6 @@ declare global {
 			categories: BlogCategory[]
 			author: Employee
 			publishDate: string
-			metadata: Metadata
 		}
 
 		type BlogCategory = SanityDocument & {
@@ -37,19 +44,16 @@ declare global {
 			slug: { current: string }
 		}
 
-		type Employee = SanityDocument & {
+		type Employee = PageBase & {
 			name: string
 			title: string
 			content?: any
 			description?: string
 			image: Image
-			metadata: Metadata
 		}
 
-		type CaseStudy = SanityDocument & {
-			title: string
+		type CaseStudy = PageBase & {
 			url: string
-			metadata: Metadata
 		}
 
 		type Callout = SanityDocument & {
@@ -66,11 +70,12 @@ declare global {
 			style?: string
 		}
 
-		type Image = SanityImageAssetDocument & {
-			alt?: string
-			caption?: string
-			source?: string
-		}
+		type Image = SanityImageObject &
+			Partial<{
+				alt: string
+				caption: string
+				source: string
+			}>
 
 		type Link = {
 			readonly _type: 'link'

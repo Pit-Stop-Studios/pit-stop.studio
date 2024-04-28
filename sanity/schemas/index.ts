@@ -1,7 +1,8 @@
 // documents
 import site from './documents/site'
-import page from './documents/page'
+import navigation from './documents/navigation'
 import redirect from './documents/redirect'
+import page from './documents/page'
 import blogPost from './documents/blog.post'
 import blogCategory from './documents/blog.category'
 import employee from './documents/employee'
@@ -29,8 +30,9 @@ import uvpList from './modules/uvp-list'
 export const schemaTypes = [
 	// documents
 	site,
-	page,
+	navigation,
 	redirect,
+	page,
 	blogPost,
 	blogCategory,
 	employee,

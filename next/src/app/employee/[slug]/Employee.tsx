@@ -1,4 +1,4 @@
-import getSite from '@/lib/getSite'
+import { getSite } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import { BASE_URL } from '@/lib/env'
 import Mask from '@/ui/Mask'

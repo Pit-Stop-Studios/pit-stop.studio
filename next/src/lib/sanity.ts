@@ -1,6 +1,8 @@
 import { createClient, type QueryParams } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import dev from '@/lib/env'
+import groq from 'groq'
+
 export { default as groq } from 'groq'
 
 export const client = createClient({
@@ -35,3 +37,30 @@ export function fetchSanity<T = any>(
 const builder = imageUrlBuilder(client)
 
 export const urlFor = (source: Sanity.Image) => builder.image(source)
+
+/* queries */
+
+const navigationQuery = groq`
+	title,
+	items[]{
+		...,
+		internal->{ _type, title, metadata },
+		links[]{
+			...,
+			internal->{ _type, title, metadata }
+		}
+	}
+`
+
+export async function getSite() {
+	return await fetchSanity<Sanity.Site>(
+		groq`
+			*[_type == 'site'][0]{
+				...,
+				headerMenu->{ ${navigationQuery} },
+				footerMenu->{ ${navigationQuery} }
+			}
+		`,
+		{ tags: ['site'] },
+	)
+}

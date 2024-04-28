@@ -1,4 +1,4 @@
-import getSite from '@/lib/getSite'
+import { getSite } from '@/lib/sanity'
 import Link from 'next/link'
 import Mask from './Mask'
 import { cn } from '@/lib/utils'

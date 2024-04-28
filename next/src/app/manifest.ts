@@ -1,4 +1,4 @@
-import getSite from '@/lib/getSite'
+import { getSite } from '@/lib/sanity'
 import type { MetadataRoute } from 'next'
 
 export default async function manifeset(): Promise<MetadataRoute.Manifest> {
