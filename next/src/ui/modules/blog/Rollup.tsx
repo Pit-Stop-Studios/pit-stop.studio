@@ -20,7 +20,7 @@ export default async function Rollup({
 	heading: React.ReactNode
 }>) {
 	const posts = await fetchSanity<Sanity.BlogPost[]>(
-		groq`*[_type == 'blog.post' && defined(body)]|order(publishDate desc){
+		groq`*[_type == 'blog.post' && defined(body) && defined(metadata.slug)]|order(publishDate desc){
 			...,
 			categories[]->,
 			author->

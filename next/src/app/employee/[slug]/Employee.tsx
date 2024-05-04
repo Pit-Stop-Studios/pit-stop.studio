@@ -17,6 +17,8 @@ export default async function Employee({
 }) {
 	const { logo } = await getSite()
 
+	if (!employee?.metadata?.slug) return null
+
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'ProfilePage',
@@ -26,18 +28,23 @@ export default async function Employee({
 			name: employee.name,
 			jobTitle: employee.title,
 			description: employee.description,
-			image: urlFor(employee.image).size(400, 400).auto('format').url(),
+			image:
+				employee.image &&
+				urlFor(employee.image).size(400, 400).auto('format').url(),
 			url: `${BASE_URL}/employee/${employee.metadata.slug.current}`,
 		},
-		hasPart: employee.posts?.map((post) => ({
-			'@type': 'BlogPosting',
-			headline: post.metadata.title,
-			datePublished: post.publishDate + 'T00:00:00Z',
-			url: `${BASE_URL}/blog/${post.metadata.slug.current}`,
-			author: {
-				'@id': employee.metadata.slug.current,
-			},
-		})),
+		hasPart: employee.posts?.map(
+			(post) =>
+				post?.metadata?.slug && {
+					'@type': 'BlogPosting',
+					headline: post.metadata.title,
+					datePublished: post.publishDate + 'T00:00:00Z',
+					url: `${BASE_URL}/blog/${post.metadata.slug.current}`,
+					author: {
+						'@id': employee.metadata.slug.current,
+					},
+				},
+		),
 	}
 
 	return (

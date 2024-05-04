@@ -31,12 +31,6 @@ export default function EmployeeList({
 						</dt>
 						<dd>
 							<div>{employee.title}</div>
-
-							{employee.content && (
-								<div className="richtext text-sm">
-									<PortableText value={employee.content} />
-								</div>
-							)}
 						</dd>
 					</div>
 				))}

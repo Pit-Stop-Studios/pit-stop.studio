@@ -9,6 +9,8 @@ import Categories from './Categories'
 export default async function PostPreview({ post }: { post: Sanity.BlogPost }) {
 	const { logo } = await getSite()
 
+	if (!post?.metadata?.slug) return null
+
 	return (
 		<div className="space-y-2">
 			<Link

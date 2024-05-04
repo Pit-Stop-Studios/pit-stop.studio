@@ -17,6 +17,17 @@ export default defineType({
 					marks: {
 						annotations: [
 							{
+								name: 'link',
+								type: 'object',
+								fields: [
+									defineField({
+										name: 'href',
+										title: 'URL',
+										type: 'url',
+									}),
+								],
+							},
+							{
 								name: 'ruby',
 								title: 'Ruby',
 								type: 'object',
