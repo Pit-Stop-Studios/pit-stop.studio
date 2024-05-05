@@ -9,7 +9,7 @@ export default async function Header() {
 	const { headerMenu, ctas } = await getSite()
 
 	return (
-		<Wrapper className="sticky top-0 z-10 border-b border-current bg-canvas p-4">
+		<Wrapper className="sticky top-0 z-10 px-4">
 			<div className="flex flex-wrap items-center justify-between gap-2">
 				<Logo />
 
@@ -28,7 +28,7 @@ export default async function Header() {
 					})}
 				</nav>
 
-				<CTAList ctas={ctas} />
+				<CTAList className="my-2 md:mx-2" ctas={ctas} />
 			</div>
 		</Wrapper>
 	)

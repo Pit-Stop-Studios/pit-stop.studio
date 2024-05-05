@@ -34,12 +34,14 @@ export default async function CaseStudyList({
 						<dl>
 							<dt>{caseStudy.metadata.title}</dt>
 
-							<dd>
-								<a className="action-arrow" href={caseStudy.url}>
-									{caseStudy.url}
-									<AiOutlineSwapRight className="text-xl" />
-								</a>
-							</dd>
+							{caseStudy.url && (
+								<dd>
+									<a className="action-arrow" href={caseStudy.url}>
+										{caseStudy.url}
+										<AiOutlineSwapRight className="text-xl" />
+									</a>
+								</dd>
+							)}
 
 							{caseStudy.metadata.description && (
 								<dd>{caseStudy.metadata.description}</dd>

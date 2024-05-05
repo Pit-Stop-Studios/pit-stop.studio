@@ -4,6 +4,9 @@ export default defineType({
 	name: 'site',
 	title: 'Site',
 	type: 'document',
+	fieldsets: [
+		{ name: 'navigation', title: 'Navigation', options: { columns: 2 } },
+	],
 	fields: [
 		defineField({
 			name: 'title',
@@ -14,11 +17,6 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
-			name: 'headerMenu',
-			type: 'reference',
-			to: [{ type: 'navigation' }],
-		}),
-		defineField({
 			name: 'ctas',
 			title: 'Call-to-actions',
 			type: 'array',
@@ -26,9 +24,16 @@ export default defineType({
 			validation: (Rule) => Rule.max(1),
 		}),
 		defineField({
+			name: 'headerMenu',
+			type: 'reference',
+			to: [{ type: 'navigation' }],
+			fieldset: 'navigation',
+		}),
+		defineField({
 			name: 'footerMenu',
 			type: 'reference',
 			to: [{ type: 'navigation' }],
+			fieldset: 'navigation',
 		}),
 		defineField({
 			name: 'logo',
