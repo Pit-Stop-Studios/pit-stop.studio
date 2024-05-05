@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { orderRankField } from '@sanity/orderable-document-list'
 import { VscAccount } from 'react-icons/vsc'
 
 export default defineType({
@@ -7,6 +8,7 @@ export default defineType({
 	icon: VscAccount,
 	type: 'document',
 	fields: [
+		orderRankField({ type: 'employee' }),
 		defineField({
 			name: 'name',
 			type: 'string',

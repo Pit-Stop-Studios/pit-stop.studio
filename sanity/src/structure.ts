@@ -1,7 +1,8 @@
 import { singleton } from './utils'
+import { orderableDocumentListDeskItem as orderable } from '@sanity/orderable-document-list'
 import type { StructureResolver } from 'sanity/structure'
 
-import { VscServerProcess } from 'react-icons/vsc'
+import { VscAccount, VscServerProcess } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
 	S.list()
@@ -19,7 +20,13 @@ const structure: StructureResolver = (S, context) =>
 			S.documentTypeListItem('blog.category').title('Blog categories'),
 			S.divider(),
 
-			S.documentTypeListItem('employee').title('Employees'),
+			orderable({
+				type: 'employee',
+				title: 'Employees',
+				icon: VscAccount,
+				S,
+				context,
+			}),
 			S.documentTypeListItem('case-study').title('Case Studies'),
 			S.documentTypeListItem('callout').title('Callouts'),
 		])

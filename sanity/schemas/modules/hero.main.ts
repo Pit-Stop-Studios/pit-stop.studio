@@ -28,6 +28,11 @@ export default defineType({
 				}),
 			],
 		}),
+		defineField({
+			name: 'showEmployees',
+			type: 'boolean',
+			initialValue: false,
+		}),
 	],
 	preview: {
 		select: {

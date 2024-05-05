@@ -27,7 +27,7 @@ async function getEmployee(params: Props['params']) {
 		}`,
 		{
 			params,
-			tags: ['employees'],
+			tags: ['employee'],
 		},
 	)
 }

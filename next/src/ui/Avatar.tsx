@@ -1,10 +1,11 @@
-import { urlFor } from '@/lib/sanity'
 import { cn } from '@/lib/utils'
+import Img from './Img'
 
 export default function Avatar({
 	image,
 	size = 120,
 	className,
+	style,
 }: {
 	image: Sanity.Image
 	size?: number
@@ -15,19 +16,13 @@ export default function Avatar({
 				'aspect-square overflow-hidden rounded-full bg-ink/5',
 				className,
 			)}
-			style={{ maxWidth: size }}
+			style={{ width: size, ...style }}
 		>
 			{image && (
-				<img
+				<Img
 					className="aspect-square w-full object-cover"
-					src={urlFor(image)
-						.size(size * 2, size * 2)
-						.auto('format')
-						.url()}
-					alt=""
-					width={size * 2}
-					height={size * 2}
-					loading="lazy"
+					image={image}
+					imageWidth={size * 2}
 					draggable={false}
 				/>
 			)}
