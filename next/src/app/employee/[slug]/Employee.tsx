@@ -58,7 +58,7 @@ export default async function Employee({
 						<PortableText value={employee.content} />
 					</div>
 
-					<figure>
+					<figure className="bg-ink/5">
 						<Img
 							className="mx-auto w-full max-w-lg shadow-[.7ch_.7ch_#000]"
 							image={employee.image}
